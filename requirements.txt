@@ -15,7 +15,6 @@ itsdangerous==1.1.0
 Jinja2==2.11.3
 MarkupSafe==1.1.1
 mysql-connector-python==8.0.26
-psycopg2==2.8.6
 psycopg2-binary==2.9.1
 pygal==2.4.0
 python-dotenv==0.15.0
