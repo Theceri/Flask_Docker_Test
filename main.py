@@ -22,8 +22,7 @@ from models.User import User
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-
-    return render_template('index.html')
+    return render_template('index.html', users = User.query.all())
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
