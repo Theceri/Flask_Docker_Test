@@ -1,17 +1,17 @@
-from flask import Flask, app, render_template, request, redirect, url_for, flash, jsonify
+from flask import Flask, app, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-from configs.base import DevelopmentConfig
-
 
 app = Flask(__name__)
+
+from configs.base import DevelopmentConfig
 app.config.from_object(DevelopmentConfig)
 
+db = SQLAlchemy(app)
 
 @app.before_first_request
 def create_tables():
     db.create_all()
 
-db = SQLAlchemy(app)
 
 from models.User import User
 
@@ -33,5 +33,5 @@ def register():
         db.session.commit()
 
         return redirect(url_for('index'))
-        
+
     return render_template('register.html')
