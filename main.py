@@ -10,7 +10,11 @@ db = SQLAlchemy(app)
 
 @app.before_first_request
 def create_tables():
-    db.create_all()
+    try:
+        db.create_all()
+        print('tryied and tested')
+    except Exception as e:
+        print('failed:', e)
 
 
 from models.User import User
